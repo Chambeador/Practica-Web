@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type  = "text" id = "texto" placeholder="descripcion">descripcion</input><br>
+    <input type="radio" id="terminado" name="requisito"  value = "terminado"checked>
+    <label for="terminado">terminado</label><br>
+    <input type="radio" id="no-terminado" name="requisito" value = "no-terminado">
+    <label for="no-terminado">no-terminado</label><br>
+
+
+    <button id = "boton"> Enviar</button>
+
+    <ul id = "lista"></ul>
+    <script>
+        const boton1 = document.getElementById("boton");
+        const lista1 = document.getElementById("lista");
+
+        boton1.addEventListener("click", function(){
+            const texto1 = document.getElementById("texto");
+            let hora = new Date();
+            let descripcion2 = texto1.value;
+            let estado = document.querySelector('input[name = "requisito"]:checked').value;
+
+            let descrip = {
+                descripcion:descripcion2,
+                estado: estado,
+                fecha: hora
+            };
+            localStorage.setItem("descrip", JSON.stringify(descrip));
+            
+            
+        });
+    </script>
+</body>
+</html>
